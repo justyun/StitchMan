@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2943188E1788E4F000273141 /* KeypointPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 2943188D1788E4F000273141 /* KeypointPair.m */; };
+		294318911788E5C100273141 /* Matcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 294318901788E5C100273141 /* Matcher.m */; };
+		294318941788E60600273141 /* KeypointPairList.m in Sources */ = {isa = PBXBuildFile; fileRef = 294318931788E60600273141 /* KeypointPairList.m */; };
 		57770A4A1787D59A00A22147 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57770A491787D59A00A22147 /* UIKit.framework */; };
 		57770A4C1787D59A00A22147 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57770A4B1787D59A00A22147 /* Foundation.framework */; };
 		57770A4E1787D59A00A22147 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57770A4D1787D59A00A22147 /* CoreGraphics.framework */; };
@@ -26,6 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2943188C1788E4F000273141 /* KeypointPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypointPair.h; sourceTree = "<group>"; };
+		2943188D1788E4F000273141 /* KeypointPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypointPair.m; sourceTree = "<group>"; };
+		2943188F1788E5C100273141 /* Matcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matcher.h; sourceTree = "<group>"; };
+		294318901788E5C100273141 /* Matcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Matcher.m; sourceTree = "<group>"; };
+		294318921788E60600273141 /* KeypointPairList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypointPairList.h; sourceTree = "<group>"; };
+		294318931788E60600273141 /* KeypointPairList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypointPairList.m; sourceTree = "<group>"; };
 		57770A461787D59A00A22147 /* StitchMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StitchMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57770A491787D59A00A22147 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57770A4B1787D59A00A22147 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,6 +77,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2943188B1788E44A00273141 /* MATCH */ = {
+			isa = PBXGroup;
+			children = (
+				2943188C1788E4F000273141 /* KeypointPair.h */,
+				2943188D1788E4F000273141 /* KeypointPair.m */,
+				2943188F1788E5C100273141 /* Matcher.h */,
+				294318901788E5C100273141 /* Matcher.m */,
+				294318921788E60600273141 /* KeypointPairList.h */,
+				294318931788E60600273141 /* KeypointPairList.m */,
+			);
+			name = MATCH;
+			sourceTree = "<group>";
+		};
 		57770A3D1787D59A00A22147 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +120,7 @@
 		57770A4F1787D59A00A22147 /* StitchMan */ = {
 			isa = PBXGroup;
 			children = (
+				2943188B1788E44A00273141 /* MATCH */,
 				57770A6D1787D5B500A22147 /* SIFT */,
 				57770A581787D59A00A22147 /* AppDelegate.h */,
 				57770A591787D59A00A22147 /* AppDelegate.m */,
@@ -214,6 +237,9 @@
 				57770AA11787D6BE00A22147 /* Pyramid.m in Sources */,
 				57770AA41787D6D400A22147 /* Convolution.m in Sources */,
 				57CC59EE1787E3400033B048 /* Keypoint.m in Sources */,
+				2943188E1788E4F000273141 /* KeypointPair.m in Sources */,
+				294318911788E5C100273141 /* Matcher.m in Sources */,
+				294318941788E60600273141 /* KeypointPairList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
