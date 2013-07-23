@@ -10,4 +10,16 @@
 
 @implementation KeypointPairList
 
+
+-(id)initWithNSMutableArray:(NSMutableArray *)array{
+    if(self = [super init]){
+        pairList = array;
+    }
+    return self;
+}
+
+-(NSMutableArray *)getPairList{
+    return pairList;
+}
+
 @end

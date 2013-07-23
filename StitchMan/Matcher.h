@@ -7,8 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KeypointPair.h"
 #import "KeypointPairList.h"
+#import "ImageMatrix.h"
+#import "KeypointVector.h"
+#import "Keypoint.h"
 
 @interface Matcher : NSObject
+
++(KeypointPairList *)getKeypointPairList:(KeypointVector *)keypointVector1
+                    secondKeypointVector:(KeypointVector *)keypointVector2
+__attribute((ns_returns_retained));
+
++(double)getEuclidianDistance:(Keypoint *)p1
+                 keypoint2:(Keypoint *)p2;
 
 @end

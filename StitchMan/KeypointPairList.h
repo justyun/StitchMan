@@ -10,5 +10,14 @@
 #import "KeypointPair.h"
 
 @interface KeypointPairList : NSObject
+{
+    @public
+    NSMutableArray * pairList;
+
+}
+
+-(id) initWithNSMutableArray:(NSMutableArray *)array;
+
+-(NSMutableArray *)getPairList;
 
 @end

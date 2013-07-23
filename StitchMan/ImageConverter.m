@@ -19,7 +19,7 @@ __attribute((ns_returns_retained))
     NSUInteger height = CGImageGetHeight(imageRef);
     NSUInteger totalPixel = width * height;
     unsigned char *rawData = malloc(height * width * 4);
-    double *grayscale = malloc(sizeof(double) * height * width);
+    float *grayscale = malloc(sizeof(float) * height * width);
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     NSUInteger bytesPerPixel = 4;
@@ -72,7 +72,7 @@ __attribute((ns_returns_retained))
     NSUInteger height = CGImageGetHeight(imageRef);
     NSUInteger totalPixel = width * height;
     unsigned char *rawData = malloc(height * width * 4);
-    double *componentU = malloc(sizeof(double) * height * width);
+    float *componentU = malloc(sizeof(float) * height * width);
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     NSUInteger bytesPerPixel = 4;
@@ -114,7 +114,7 @@ __attribute((ns_returns_retained))
     NSUInteger height = CGImageGetHeight(imageRef);
     NSUInteger totalPixel = width * height;
     unsigned char *rawData = malloc(height * width * 4);
-    double *componentV = malloc(sizeof(double) * height * width);
+    float *componentV = malloc(sizeof(float) * height * width);
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     NSUInteger bytesPerPixel = 4;
@@ -157,7 +157,7 @@ __attribute((ns_returns_retained))
     NSUInteger height = CGImageGetHeight(imageRef);
     NSUInteger totalPixel = width * height;
     unsigned char *rawData = malloc(height * width * 4);
-    double *componentAlpha = malloc(sizeof(double) * height * width);
+    float *componentAlpha = malloc(sizeof(float) * height * width);
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     NSUInteger bytesPerPixel = 4;
@@ -193,14 +193,13 @@ __attribute((ns_returns_retained))
 + (UIImage *) Luminance2UIImage:(ImageMatrix *)im __attribute((ns_returns_retained))
 {
     int i,j;
-    int height = im.getHeight;
-    int width = im.getWidth;
+    int height = im->imageHeight;
+    int width = im->imageWidth;
     NSUInteger totalPixel = width * height;
-    double *grayscale = malloc(sizeof(double) * height * width);
+    float *grayscale = malloc(sizeof(float) * height * width);
     for (i=0; i<height; i++) {
         for(j=0;j<width;j++){
-            grayscale[i * width + j] = [im getValueAtHeight:i
-                                                      Width:j];
+            grayscale[i * width + j] = im->pImage[i*im->imageWidth+j];
             
         }
     }
@@ -239,19 +238,18 @@ __attribute((ns_returns_retained))
                    componentAlpha:(ImageMatrix *)Alpha
 {
     int i,j;
-    int height = im.getHeight;
-    int width = im.getWidth;
+    int height = im->imageHeight;
+    int width = im->imageWidth;
     NSUInteger totalPixel = width * height;
-    double *grayscale = malloc(sizeof(double) * height * width);
-    double *componentU = malloc(sizeof(double) * height * width);
-    double *componentV = malloc(sizeof(double) * height * width);
-    double *componentAlpha = malloc(sizeof(double) * height * width);
+    float *grayscale = malloc(sizeof(float) * height * width);
+    float *componentU = malloc(sizeof(float) * height * width);
+    float *componentV = malloc(sizeof(float) * height * width);
+    float *componentAlpha = malloc(sizeof(float) * height * width);
     
     //grayscale = im.returnGrayScale;
     for (i=0; i<height; i++) {
         for(j=0;j<width;j++){
-            grayscale[i * width + j] = [im getValueAtHeight:i
-                                                      Width:j];
+            grayscale[i * width + j] = im->pImage[i*im->imageWidth+j];
             
         }
     }
@@ -260,22 +258,19 @@ __attribute((ns_returns_retained))
     //componentU = im.returnComponentU;
     for (i=0; i<height; i++) {
         for(j=0;j<width;j++){
-            componentU[i * width + j] = [U getValueAtHeight:i
-                                                      Width:j];
+            componentU[i * width + j] = U->pImage[i*U->imageWidth+j];
         }
     }
     //componentV = im.returnComponentV;
     for (i=0; i<height; i++) {
         for(j=0;j<width;j++){
-            componentV[i * width + j] = [V getValueAtHeight:i
-                                                      Width:j];
+            componentV[i * width + j] = V->pImage[i*V->imageWidth+j];
         }
     }
     //componentAlpha = im.returnComponentAlpha;
     for (i=0; i<height; i++) {
         for(j=0;j<width;j++){
-            componentAlpha[i * width + j] = [Alpha getValueAtHeight:i
-                                                              Width:j];
+            componentAlpha[i * width + j] = Alpha->pImage[i*Alpha->imageWidth+j];
             
         }
     }
@@ -312,6 +307,62 @@ __attribute((ns_returns_retained))
     
     return resultImage;
 }
+
++ (UIImage *) Luminance2UIImage:(ImageMatrix *)im
+                       withMark:(ImageMatrix *)mark
+__attribute((ns_returns_retained))
+{
+    int i,j,threshold=180;
+    int height = im->imageHeight;
+    int width = im->imageWidth;
+    NSUInteger totalPixel = width * height;
+    float *grayscale = malloc(sizeof(float) * height * width);
+    for (i=0; i<height; i++) {
+        for(j=0;j<width;j++){
+            grayscale[i * width + j] = im->pImage[i*im->imageWidth+j];
+            
+        }
+    }
+    unsigned char *rawData = malloc(height * width * 4);
+    for (int i=0; i<totalPixel; i++) {
+        int j = 4*i;
+        if((int)mark->pImage[i]>threshold){
+            rawData[j]=255;
+            rawData[j+1]=0;
+            rawData[j+2]=0;
+            rawData[j+3]=200;
+        }
+        else{
+        rawData[j] = (unsigned char)grayscale[i];
+        rawData[j+1] = (unsigned char)grayscale[i];
+        rawData[j+2] = (unsigned char)grayscale[i];
+        rawData[j+3] = (unsigned char)255;
+        }
+    }
+    
+    // build uiimage
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef bitmapContext = CGBitmapContextCreate(rawData, width, height, 8, 4*width, colorSpace, kCGImageAlphaPremultipliedLast|kCGBitmapByteOrderDefault);
+    CFRelease(colorSpace);
+    CGImageRef cgImage = CGBitmapContextCreateImage(bitmapContext);
+    CGContextRelease(bitmapContext);
+    
+    UIImage *resultImage = [UIImage imageWithCGImage:cgImage];
+    CGImageRelease(cgImage);
+    
+    //release memory
+    free(rawData);
+    rawData=NULL;
+    free(grayscale);
+    grayscale=NULL;
+    
+    return resultImage;
+
+
+
+}
+
+
 
 @end
 

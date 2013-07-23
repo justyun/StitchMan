@@ -11,7 +11,12 @@
 
 @interface KeypointPair : NSObject
 {
+    @public
     Keypoint * keypoint1;
     Keypoint * keypoint2;
+    int euclidianDistance;
 }
+-(id) initPair:(Keypoint *)p1
+ secondKeypoint:(Keypoint *)p2
+euclidianDistance:(int) distance;
 @end

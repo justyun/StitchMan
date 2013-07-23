@@ -15,6 +15,8 @@
 @implementation ViewController
 
 //@synthesize imageView;
+int count=0;
+int hasMergedImage=0;
 
 - (id)init
 {
@@ -46,17 +48,52 @@
     }
 }
 
+-(IBAction)stitchWithoutOverlap{
+    if(count!=0){
+        mergedImage = [Stitcher mergeTheImage:image[0] withImage:image[1]];
+        self.imageView.image = mergedImage;
+        count = 1;
+        image[0] = mergedImage;
+        hasMergedImage = 1;
+    }
+}
+
+-(IBAction)saveToCameraRoll{
+    if (hasMergedImage==1) {
+        UIImageWriteToSavedPhotosAlbum(mergedImage, nil, nil, nil);
+    }
+}
+
+-(IBAction)cancel{
+    count = 0;
+    mergedImage = nil;
+    self.imageView.image = nil;
+
+
+}
+
+-(IBAction)sift{
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    image=[info objectForKey:UIImagePickerControllerOriginalImage];
-    self.imageView.image=image;
-    ImageMatrix *imageMatrix=[ImageConverter UIImage2ImageMatrixY:image];
+    image[count]=[info objectForKey:UIImagePickerControllerOriginalImage];
+    self.imageView.image=image[count];
+    //ImageMatrix *imageMatrix=[ImageConverter UIImage2ImageMatrixY:image];
     //[imageMatrix print];
-    Pyramid *test=[[Pyramid alloc] initWithImageMatrix:imageMatrix];
+    //Pyramid *test=[[Pyramid alloc] initWithImageMatrix:imageMatrix];
+    
+    ImageMatrix *im=[ImageConverter UIImage2ImageMatrixY:image[count]];
+    SIFT *sift=[[SIFT alloc] initWithImageMatrix:im];
+    self.imageView.image=[ImageConverter Luminance2UIImage:im withMark:[sift output]];
+    
+   // sift->keypointVector
+    
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    NSLog(@"Image size: %.0f x %.0f",image.size.width,image.size.height);
+    NSLog(@"Image size: %.0f x %.0f",image[count].size.width,image[count].size.height);
+    count++;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

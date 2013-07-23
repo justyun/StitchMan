@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "+[Matcher getEuclidianDistance:keypoint2:]:Matcher.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "p1-&gt;descriptor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[Matcher getKeypointPairList:secondKeypointVector:]:Matcher.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[keypointVector1-&gt;keypoints objectAtIndex:i]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[Stitcher getScale:p2:]:Stitcher.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "p2-&gt;keypoint1">
+            </PersistentString>
+            <PersistentString
+               value = "p1-&gt;keypoint1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

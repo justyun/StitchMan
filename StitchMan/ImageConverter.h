@@ -27,4 +27,6 @@
                        componentV:(ImageMatrix *)V
                    componentAlpha:(ImageMatrix *)Alpha;
 
++ (UIImage *) Luminance2UIImage:(ImageMatrix *)im withMark:(ImageMatrix *)mark __attribute((ns_returns_retained));
+
 @end

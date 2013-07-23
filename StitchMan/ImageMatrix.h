@@ -1,4 +1,3 @@
-//
 //  ImageMatrix.h
 //  StitchMan
 //
@@ -8,18 +7,24 @@
 
 #import <Foundation/Foundation.h>
 
+#define PI 3.1415926
+#define EULER 2.718281828
+
 @interface ImageMatrix : NSObject
 {
-    double *pImage;
+@public
+    float *pImage;
     int imageWidth;
     int imageHeight;
 }
 
 - (id)initWithHeight:(int)imageHeight Width:(int)imageWidth;
 
+- (id)initWithHeight:(int)height Width:(int)width Value:(float)value;
+
 - (id)initWithUIImage:(UIImage *)uiimage;
 
-- (id)initWithArray:(double *)array Height:(int)height Width:(int)width;
+- (id)initWithArray:(float *)array Height:(int)height Width:(int)width;
 
 - (id)initWithImageMatrix:(ImageMatrix *)im;
 
@@ -27,13 +32,17 @@
 
 - (id)initWithImageMatrixByDownsampling:(ImageMatrix *)im Factor:(int)factor;
 
-- (double)getValueAtHeight:(int)height Width:(int)width;
+- (void)expandWithValue:(float)value
+                    Top:(int)top Bottom:(int)bottom
+                   Left:(int)left Right:(int)right;
 
-- (int)getHeight;
+//- (float)getValueAtHeight:(int)height Width:(int)width;
 
-- (int)getWidth;
+//- (int)getHeight;
 
-- (void)setValueAtHeight:(int)height Width:(int)width Value:(double)value;
+//- (int)getWidth;
+
+//- (void)setValueAtHeight:(int)height Width:(int)width Value:(float)value;
 
 
 
