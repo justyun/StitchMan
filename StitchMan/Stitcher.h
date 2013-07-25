@@ -10,6 +10,8 @@
 #import "Matcher.h"
 #import "UIImageConverter.h"
 #import "math.h"
+#import "UIImagePruner.h"
+#import "drawRedLines.h"
 
 @interface Stitcher : NSObject
 

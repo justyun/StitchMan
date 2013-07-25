@@ -27,8 +27,8 @@
     theta = [Stitcher getTheta:p1 p2:p2];
     printf("theta = %f\n",theta);
     //theta = 0;
-    scale = 1;
-    //scale = [Stitcher getScale:p1 p2:p2];
+    //scale = 1;
+    scale = [Stitcher getScale:p1 p2:p2];
     printf("sclae = %f\n",scale);
     UIImage *scaledSecondImage = [Stitcher changeScale:secondImage
                                                  scale:scale];
@@ -46,15 +46,16 @@
     
     UIImage * finalSecondImage = [Stitcher rotateUIImage:scaledSecondImage
                                                 rotation:theta
-                                              referenceX:p1->keypoint2->x
-                                              referenceY:p1->keypoint2->y
+                                              referenceX:p1->keypoint2->x * scale
+                                              referenceY:p1->keypoint2->y * scale
                                                     setX:p1->keypoint1->x + expandLength
                                                     setY:p1->keypoint1->y + expandLength
                                                setHeight:newHeight
                                                 setWidth:newWidth
                                   ];
-    UIImage * resultImage = [Stitcher combineTwoImages:finalFirstImage
-                                           secondImage:finalSecondImage];
+    UIImage * resultImage = [UIImagePruner pruneImage:[Stitcher combineTwoImages:finalFirstImage
+                                           secondImage:finalSecondImage]
+                             ];
     
     //scaledSecondImage = nil;
     //finalFirstImage = nil;
@@ -63,6 +64,7 @@
     return resultImage;
     //return finalSecondImage;
     //return finalFirstImage;
+    //return scaledSecondImage;
 }
 
 +(UIImage *)combineTwoImages:(UIImage *)firstImage
@@ -312,6 +314,7 @@
 {
     int width = originalImage.size.width;
     int height = originalImage.size.height;
+    printf("width : %d\nheight : %d\n",width,height);
     unsigned char* rawData = [UIImageConverter UIImage2Data:originalImage];
     unsigned char* newData = [Stitcher rotateRawData:rawData
                                               height:height
@@ -340,7 +343,6 @@
                      setHeight:(int) newHeight
                       setWidth:(int) newWidth
                      rotatioon:(double) theta{
-    int distance;
     unsigned char* newData = malloc(newHeight * newWidth * 4);
     memset(newData, newHeight*newWidth*4, 0);
 

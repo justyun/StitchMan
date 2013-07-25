@@ -1,3 +1,10 @@
+//
+//  Convolution.m
+//  StitchMan
+//
+//  Created by wjy on 13-7-1.
+//  Copyright (c) 2013年 wjy. All rights reserved.
+//
 
 #import "Filter.h"
 
@@ -13,7 +20,7 @@ sigma:(float)sigma filterSize:(int)filterSize
 __attribute((ns_returns_retained))
 {
 	return [Filter conv:target filter:[Filter getGaussianFilter:sigma
-                                                     filterSize:filterSize]];
+															   filterSize:filterSize]];
 }
 
 + (ImageMatrix *)convWithGaussianFast:(ImageMatrix *)target
@@ -33,12 +40,12 @@ __attribute((ns_returns_retained))
 	int targetWidth=target->imageWidth;
 	int filterHeight=filter->imageHeight;
 	int filterWidth=filter->imageWidth;
-    
+	
     ImageMatrix *result=[[ImageMatrix alloc] initWithHeight:targetHeight Width:targetWidth];
     float *pFilterImage=filter->pImage;
     float *pTargetImage=target->pImage;
     float *pResultImage=result->pImage;
-    
+	
     //if the target is too small, return the target without convolution.
     //if(targetHeight<filterHeight || targetWidth<filterWidth)
     //    return target;
@@ -81,7 +88,7 @@ __attribute((ns_returns_retained))
 }
 
 + (ImageMatrix *)conv:(ImageMatrix *)target
-horizontalFilter:(ImageMatrix *)horizontalFilter verticalFilter:(ImageMatrix *)verticalFilter
+     horizontalFilter:(ImageMatrix *)horizontalFilter verticalFilter:(ImageMatrix *)verticalFilter
 __attribute((ns_returns_retained))
 {
 	int targetHeight=target->imageHeight;
@@ -93,7 +100,7 @@ __attribute((ns_returns_retained))
     float filterValue;
     int targetIndexHeight;
     int targetIndexWidth;
-    
+	
     //printf("height = %d\n",targetHeight);
     //printf("width = %d\n",targetWidth);
     //printf("filter size = %d\n",filterHeight);
@@ -112,19 +119,19 @@ __attribute((ns_returns_retained))
             int targetBaseWidth=j-filterWidth/2;
             float sum=0;
             for(int m=0;m<filterWidth;m++){
-                targetIndexWidth=targetBaseWidth+m;
-                
-                if(targetIndexWidth<0)
-                    targetIndexWidth=0;
-                else if(targetIndexWidth>=targetWidth)
-                    targetIndexWidth=targetWidth-1;
-                
-                filterValue
-                =pHorizontalFilterImage[m];
-                targetValue
-                =pTargetImage[i*targetWidth+targetIndexWidth];
-                
-                sum=sum+filterValue*targetValue;
+                    targetIndexWidth=targetBaseWidth+m;
+                    
+                    if(targetIndexWidth<0)
+                        targetIndexWidth=0;
+                    else if(targetIndexWidth>=targetWidth)
+                        targetIndexWidth=targetWidth-1;
+                    
+					filterValue
+					=pHorizontalFilterImage[m];
+                    targetValue
+                    =pTargetImage[i*targetWidth+targetIndexWidth];
+                    
+                    sum=sum+filterValue*targetValue;
             }
             //[tmp setValueAtHeight:i Width:j Value:sum];
             tmp[i*targetWidth+j]=sum;
@@ -171,7 +178,7 @@ __attribute((ns_returns_retained))
 	float value;
 	float sum=0;
     float *filter = malloc(size);
-    
+	
     for (x=0; x<filterSize; x++) {
         for (y=0; y<filterSize; y++) {
             float mid = (pow((x - halfSize),2) + pow((y - halfSize),2))/(2*sigma*sigma);
@@ -180,18 +187,18 @@ __attribute((ns_returns_retained))
 			sum=sum+value;
         }
     }
-    
+	
 	for (x=0; x<filterSize; x++)
         for (y=0; y<filterSize; y++)
             filter[x * filterSize + y] = filter[x * filterSize + y]/sum;
-    
+	
 	ImageMatrix *filterMatrix=[[ImageMatrix alloc] initWithArray:filter
                                                           Height:filterSize Width:filterSize];
-    
+	
 	//tmp
 	//[filterMatrix print];
     free(filter);
-    
+	
     return filterMatrix;
 }
 
@@ -204,23 +211,23 @@ __attribute((ns_returns_retained))
 	float value;
 	float sum=0;
     float filter[100];
-    
+	
     for (x=0; x<filterSize; x++) {
-        float mid = pow((x - halfSize),2)/(2*sigma*sigma);
-        value=sqrt(1.0 / (2 * PI * sigma * sigma))* pow(EULER,-mid);
-        filter[x] = value;
-        sum=sum+value;
+            float mid = pow((x - halfSize),2)/(2*sigma*sigma);
+			value=sqrt(1.0 / (2 * PI * sigma * sigma))* pow(EULER,-mid);
+            filter[x] = value;
+			sum=sum+value;
     }
-    
+	
 	for (x=0; x<filterSize; x++)
-        filter[x] = filter[x]/sum;
-    
+            filter[x] = filter[x]/sum;
+	
 	ImageMatrix *filterMatrix=[[ImageMatrix alloc] initWithArray:filter
                                                           Height:1 Width:filterSize];
-    
+	
 	//tmp
 	//[filterMatrix print];
-    
+	
     return filterMatrix;
 }
 
@@ -233,23 +240,23 @@ __attribute((ns_returns_retained))
 	float value;
 	float sum=0;
     float filter[100];
-    
+	
     for (x=0; x<filterSize; x++) {
         float mid = pow((x - halfSize),2)/(2*sigma*sigma);
         value=sqrt(1.0 / (2 * PI * sigma * sigma))* pow(EULER,-mid);
         filter[x] = value;
         sum=sum+value;
     }
-    
+	
 	for (x=0; x<filterSize; x++)
         filter[x] = filter[x]/sum;
     
 	ImageMatrix *filterMatrix=[[ImageMatrix alloc] initWithArray:filter
                                                           Height:filterSize Width:1];
-    
+	
 	//tmp
 	//[filterMatrix print];
-    
+	
     return filterMatrix;
 }
 

@@ -1,3 +1,10 @@
+//
+//  SIFT.m
+//  StitchMan
+//
+//  Created by wjy on 13-7-6.
+//  Copyright (c) 2013年 wjy. All rights reserved.
+//
 
 #import "SIFT.h"
 
@@ -22,7 +29,7 @@
         finish=clock();
         printf("%f seconds used to detect keypoints\n",(float)(finish-start)/1000000);
         
-        [keypointVector output];
+        //[keypointVector output];
     }
     return self;
 }

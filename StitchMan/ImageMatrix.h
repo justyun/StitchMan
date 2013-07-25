@@ -1,3 +1,4 @@
+//
 //  ImageMatrix.h
 //  StitchMan
 //
@@ -12,7 +13,7 @@
 
 @interface ImageMatrix : NSObject
 {
-@public
+    @public
     float *pImage;
     int imageWidth;
     int imageHeight;

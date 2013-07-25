@@ -14,6 +14,12 @@
          contextName = "+[Matcher getKeypointPairList:secondKeypointVector:]:Matcher.m">
          <PersistentStrings>
             <PersistentString
+               value = "[keypointVector2-&gt;keypoints objectAtIndex:0]">
+            </PersistentString>
+            <PersistentString
+               value = "keypointVector2">
+            </PersistentString>
+            <PersistentString
                value = "[keypointVector1-&gt;keypoints objectAtIndex:i]">
             </PersistentString>
          </PersistentStrings>

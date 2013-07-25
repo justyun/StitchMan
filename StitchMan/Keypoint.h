@@ -1,9 +1,16 @@
+//
+//  Keypoint.h
+//  StitchMan
+//
+//  Created by wjy on 13-7-5.
+//  Copyright (c) 2013年 wjy. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 
 @interface Keypoint : NSObject
 {
-@public
+    @public
     int x;
     int y;
     
@@ -12,6 +19,7 @@
     
     int octave_num;
     int interval_num;
+    double sub_interval_num;
     
     double descriptor[4][4][8];
     
@@ -20,7 +28,7 @@
 }
 
 - (id)initWithX:(int)x Y:(int)y X_OCT:(int)x_oct Y_OCT:(int)y_oct
-         Octave:(int)octave_num Interval:(int)interval_num;
+         Octave:(int)octave_num Interval:(int)interval_num Subinterval:(double)sub_interval_num;
 
 - (id)initWithKeypoint:(Keypoint *)keypoint;
 

@@ -1,3 +1,11 @@
+//
+//  Complex.m
+//  StitchMan
+//
+//  Created by wjy on 13-7-7.
+//  Copyright (c) 2013年 wjy. All rights reserved.
+//
+
 #import "Complex.h"
 
 @implementation Complex

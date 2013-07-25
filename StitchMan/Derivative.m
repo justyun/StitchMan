@@ -1,17 +1,24 @@
+//
+//  Derivative.m
+//  StitchMan
+//
+//  Created by wjy on 13-7-8.
+//  Copyright (c) 2013年 wjy. All rights reserved.
+//
 
 #import "Derivative.h"
 
 @implementation Derivative
 
 + (double *)deriv3D:(Pyramid *)pyramid Octave:(int)octave_num Interval:(int)interval_num
-                  X:(int)x Y:(int)y
+                       X:(int)x Y:(int)y
 {
     ImageMatrix *mat=[pyramid getDifferenceOfGaussianMatrixAtOctave:octave_num
                                                            Interval:interval_num];
     ImageMatrix *next=[pyramid getDifferenceOfGaussianMatrixAtOctave:octave_num
-                                                            Interval:interval_num+1];
+                                                           Interval:interval_num+1];
     ImageMatrix *prev=[pyramid getDifferenceOfGaussianMatrixAtOctave:octave_num
-                                                            Interval:interval_num-1];
+                                                           Interval:interval_num-1];
     
     static double deriv[3];
     double dx,dy,ds;
@@ -25,7 +32,7 @@
 }
 
 + (double *)hessian3D:(Pyramid *)pyramid Octave:(int)octave_num Interval:(int)interval_num
-                    X:(int)x Y:(int)y
+                   X:(int)x Y:(int)y
 {
     ImageMatrix *mat=[pyramid getDifferenceOfGaussianMatrixAtOctave:octave_num
                                                            Interval:interval_num];

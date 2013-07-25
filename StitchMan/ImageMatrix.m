@@ -1,4 +1,10 @@
-
+//
+//  ImageMatrix.m
+//  StitchMan
+//
+//  Created by wjy on 13-7-3.
+//  Copyright (c) 2013年 wjy. All rights reserved.
+//
 
 #import "ImageMatrix.h"
 
@@ -138,12 +144,12 @@
 }
 
 /*
- - (float)getValueAtHeight:(int)height Width:(int)width
- {
- return pImage[height*imageWidth+width];
- }
- */
-
+- (float)getValueAtHeight:(int)height Width:(int)width
+{
+    return pImage[height*imageWidth+width];
+}
+*/
+ 
 - (int)getHeight
 {
     return imageHeight;
@@ -155,11 +161,11 @@
 }
 
 /*
- - (void)setValueAtHeight:(int)height Width:(int)width Value:(float)value
- {
- pImage[height*imageWidth+width]=value;
- }
- */
+- (void)setValueAtHeight:(int)height Width:(int)width Value:(float)value
+{
+    pImage[height*imageWidth+width]=value;
+}
+*/
 
 
 - (void)print

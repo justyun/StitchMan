@@ -17,6 +17,8 @@
 		294318AE178A5EBE00273141 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 294318AC178A5EBE00273141 /* red.png */; };
 		294318AF178A5EBE00273141 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 294318AD178A5EBE00273141 /* yellow.png */; };
 		294318BF178A6D1800273141 /* secondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 294318BE178A6D1700273141 /* secondView.xib */; };
+		295211FC17A0A503008C143E /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 295211FB17A0A503008C143E /* Match.m */; };
+		295211FE17A0A819008C143E /* zebra2r.png in Resources */ = {isa = PBXBuildFile; fileRef = 295211FD17A0A819008C143E /* zebra2r.png */; };
 		29A58667178BCAC60070958A /* Complex.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5865C178BCAC60070958A /* Complex.m */; };
 		29A58668178BCAC60070958A /* ComplexMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5865E178BCAC60070958A /* ComplexMatrix.m */; };
 		29A58669178BCAC60070958A /* Derivative.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A58660178BCAC60070958A /* Derivative.m */; };
@@ -30,6 +32,12 @@
 		29D5983A17910352000798F7 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D5983817910352000798F7 /* 2.png */; };
 		29D5983D179110E4000798F7 /* 2b.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D5983B179110E4000798F7 /* 2b.png */; };
 		29D5983E179110E4000798F7 /* 2s.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D5983C179110E4000798F7 /* 2s.png */; };
+		29DB231717A0B94F006A1126 /* UIImagePruner.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB231617A0B94F006A1126 /* UIImagePruner.m */; };
+		29DB231A17A0CD62006A1126 /* zebra2b.png in Resources */ = {isa = PBXBuildFile; fileRef = 29DB231817A0CD62006A1126 /* zebra2b.png */; };
+		29DB231B17A0CD62006A1126 /* zebra2s.png in Resources */ = {isa = PBXBuildFile; fileRef = 29DB231917A0CD62006A1126 /* zebra2s.png */; };
+		29DB231E17A0D0F4006A1126 /* drawRedLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB231D17A0D0F4006A1126 /* drawRedLines.m */; };
+		29DB232117A0E60A006A1126 /* orchard1.png in Resources */ = {isa = PBXBuildFile; fileRef = 29DB231F17A0E60A006A1126 /* orchard1.png */; };
+		29DB232217A0E60A006A1126 /* orchard2.png in Resources */ = {isa = PBXBuildFile; fileRef = 29DB232017A0E60A006A1126 /* orchard2.png */; };
 		29DB697F178D02D600944EE0 /* UIImageConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB697E178D02D600944EE0 /* UIImageConverter.m */; };
 		29DB6981178D2E5E00944EE0 /* xx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 29DB6980178D2E5E00944EE0 /* xx.jpg */; };
 		57770A4A1787D59A00A22147 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57770A491787D59A00A22147 /* UIKit.framework */; };
@@ -62,6 +70,9 @@
 		294318AC178A5EBE00273141 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		294318AD178A5EBE00273141 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		294318BE178A6D1700273141 /* secondView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = secondView.xib; sourceTree = "<group>"; };
+		295211FA17A0A4F7008C143E /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
+		295211FB17A0A503008C143E /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
+		295211FD17A0A819008C143E /* zebra2r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zebra2r.png; path = ../../../../../../Downloads/zebra2r.png; sourceTree = "<group>"; };
 		29A5865B178BCAC60070958A /* Complex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Complex.h; sourceTree = "<group>"; };
 		29A5865C178BCAC60070958A /* Complex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Complex.m; sourceTree = "<group>"; };
 		29A5865D178BCAC60070958A /* ComplexMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexMatrix.h; sourceTree = "<group>"; };
@@ -82,6 +93,14 @@
 		29D5983817910352000798F7 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = ../../../../../../Downloads/2.png; sourceTree = "<group>"; };
 		29D5983B179110E4000798F7 /* 2b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2b.png; path = ../../../../../../Downloads/2b.png; sourceTree = "<group>"; };
 		29D5983C179110E4000798F7 /* 2s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2s.png; path = ../../../../../../Downloads/2s.png; sourceTree = "<group>"; };
+		29DB231517A0B94F006A1126 /* UIImagePruner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImagePruner.h; sourceTree = "<group>"; };
+		29DB231617A0B94F006A1126 /* UIImagePruner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImagePruner.m; sourceTree = "<group>"; };
+		29DB231817A0CD62006A1126 /* zebra2b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zebra2b.png; path = ../../../../../../Downloads/zebra2b.png; sourceTree = "<group>"; };
+		29DB231917A0CD62006A1126 /* zebra2s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zebra2s.png; path = ../../../../../../Downloads/zebra2s.png; sourceTree = "<group>"; };
+		29DB231C17A0D0F4006A1126 /* drawRedLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawRedLines.h; sourceTree = "<group>"; };
+		29DB231D17A0D0F4006A1126 /* drawRedLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drawRedLines.m; sourceTree = "<group>"; };
+		29DB231F17A0E60A006A1126 /* orchard1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orchard1.png; path = ../../../../../../Downloads/orchard1.png; sourceTree = "<group>"; };
+		29DB232017A0E60A006A1126 /* orchard2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orchard2.png; path = ../../../../../../Downloads/orchard2.png; sourceTree = "<group>"; };
 		29DB697D178D02D600944EE0 /* UIImageConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageConverter.h; sourceTree = "<group>"; };
 		29DB697E178D02D600944EE0 /* UIImageConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageConverter.m; sourceTree = "<group>"; };
 		29DB6980178D2E5E00944EE0 /* xx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xx.jpg; path = ../../../../../../Desktop/xx.jpg; sourceTree = "<group>"; };
@@ -151,6 +170,10 @@
 				29A58673178BCEB80070958A /* Stitcher.m */,
 				29DB697D178D02D600944EE0 /* UIImageConverter.h */,
 				29DB697E178D02D600944EE0 /* UIImageConverter.m */,
+				29DB231517A0B94F006A1126 /* UIImagePruner.h */,
+				29DB231617A0B94F006A1126 /* UIImagePruner.m */,
+				29DB231C17A0D0F4006A1126 /* drawRedLines.h */,
+				29DB231D17A0D0F4006A1126 /* drawRedLines.m */,
 			);
 			name = STICH;
 			sourceTree = "<group>";
@@ -205,6 +228,11 @@
 		57770A501787D59A00A22147 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				29DB231F17A0E60A006A1126 /* orchard1.png */,
+				29DB232017A0E60A006A1126 /* orchard2.png */,
+				29DB231817A0CD62006A1126 /* zebra2b.png */,
+				29DB231917A0CD62006A1126 /* zebra2s.png */,
+				295211FD17A0A819008C143E /* zebra2r.png */,
 				29D5983B179110E4000798F7 /* 2b.png */,
 				29D5983C179110E4000798F7 /* 2s.png */,
 				29D5983717910352000798F7 /* 1.png */,
@@ -225,6 +253,8 @@
 		57770A6D1787D5B500A22147 /* SIFT */ = {
 			isa = PBXGroup;
 			children = (
+				295211FA17A0A4F7008C143E /* Match.h */,
+				295211FB17A0A503008C143E /* Match.m */,
 				29A5865B178BCAC60070958A /* Complex.h */,
 				29A5865C178BCAC60070958A /* Complex.m */,
 				29A5865D178BCAC60070958A /* ComplexMatrix.h */,
@@ -316,6 +346,11 @@
 				29D5983A17910352000798F7 /* 2.png in Resources */,
 				29D5983D179110E4000798F7 /* 2b.png in Resources */,
 				29D5983E179110E4000798F7 /* 2s.png in Resources */,
+				295211FE17A0A819008C143E /* zebra2r.png in Resources */,
+				29DB231A17A0CD62006A1126 /* zebra2b.png in Resources */,
+				29DB231B17A0CD62006A1126 /* zebra2s.png in Resources */,
+				29DB232117A0E60A006A1126 /* orchard1.png in Resources */,
+				29DB232217A0E60A006A1126 /* orchard2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +381,9 @@
 				29A5866C178BCAC60070958A /* SIFT.m in Sources */,
 				29A58674178BCEB80070958A /* Stitcher.m in Sources */,
 				29DB697F178D02D600944EE0 /* UIImageConverter.m in Sources */,
+				295211FC17A0A503008C143E /* Match.m in Sources */,
+				29DB231717A0B94F006A1126 /* UIImagePruner.m in Sources */,
+				29DB231E17A0D0F4006A1126 /* drawRedLines.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

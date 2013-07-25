@@ -11,7 +11,7 @@
 @implementation KeypointPair
 -(id) initPair:(Keypoint *)p1
  secondKeypoint:(Keypoint *)p2
-euclidianDistance:(int) distance{
+euclidianDistance:(double) distance{
     if (self = [super init]) {
         keypoint1 = p1;
         keypoint2 = p2;

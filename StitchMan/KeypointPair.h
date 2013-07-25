@@ -14,9 +14,9 @@
     @public
     Keypoint * keypoint1;
     Keypoint * keypoint2;
-    int euclidianDistance;
+    double euclidianDistance;
 }
 -(id) initPair:(Keypoint *)p1
  secondKeypoint:(Keypoint *)p2
-euclidianDistance:(int) distance;
+euclidianDistance:(double) distance;
 @end

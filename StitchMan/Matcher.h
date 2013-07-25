@@ -20,6 +20,9 @@
 __attribute((ns_returns_retained));
 
 +(double)getEuclidianDistance:(Keypoint *)p1
-                 keypoint2:(Keypoint *)p2;
+                    keypoint2:(Keypoint *)p2;
+
++(double)getSquaredEuclidianDistance:(Keypoint *)p1
+                           keypoint2:(Keypoint *)p2;
 
 @end

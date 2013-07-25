@@ -1,3 +1,11 @@
+//
+//  Pyramid.h
+//  StitchMan
+//
+//  Created by wjy on 13-7-3.
+//  Copyright (c) 2013年 wjy. All rights reserved.
+//
+
 #import <Foundation/Foundation.h>
 
 #import "Filter.h"

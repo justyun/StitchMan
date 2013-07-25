@@ -1,3 +1,10 @@
+//
+//  Pyramid.m
+//  StitchMan
+//
+//  Created by wjy on 13-7-3.
+//  Copyright (c) 2013年 wjy. All rights reserved.
+//
 
 #import "Pyramid.h"
 
@@ -138,7 +145,7 @@ __attribute((ns_returns_retained))
 - (void)setHorizontalGaussianFilter
 {
     for(int i=0;i<intervalNum+3;i++){
-        int filterSize=ceil(6*sigma[i]+1);
+        int filterSize=ceil(6*sigma[i]-1);
         if(!(filterSize%2))
             filterSize++;
         horizontalGaussianFilter[i]=[Filter getHorizontalGaussianFilter:sigma[i]
@@ -149,7 +156,7 @@ __attribute((ns_returns_retained))
 - (void)setVerticalGaussianFilter
 {
     for(int i=0;i<intervalNum+3;i++){
-        int filterSize=ceil(6*sigma[i]+1);
+        int filterSize=ceil(6*sigma[i]-1);
         if(!(filterSize%2))
             filterSize++;
         verticalGaussianFilter[i]=[Filter getVerticalGaussianFilter:sigma[i]
@@ -189,7 +196,7 @@ __attribute((ns_returns_retained))
             UIImage *uiimage=[ImageConverter Luminance2UIImage:im];
             data=UIImagePNGRepresentation(uiimage);
             NSString *str
-            =[[NSString alloc] initWithFormat:@"/Users/wjy/Desktop/output/%d.png",index];
+            =[[NSString alloc] initWithFormat:@"/Users/heqiyun/Desktop/output/%d.png",index];
             [fileManager createFileAtPath:str
                                  contents:data
                                attributes:nil];
