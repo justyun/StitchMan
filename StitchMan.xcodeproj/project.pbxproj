@@ -19,6 +19,7 @@
 		294318BF178A6D1800273141 /* secondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 294318BE178A6D1700273141 /* secondView.xib */; };
 		295211FC17A0A503008C143E /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 295211FB17A0A503008C143E /* Match.m */; };
 		295211FE17A0A819008C143E /* zebra2r.png in Resources */ = {isa = PBXBuildFile; fileRef = 295211FD17A0A819008C143E /* zebra2r.png */; };
+		296ACE4117A1E1AA00D02571 /* finalStitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 296ACE4017A1E1AA00D02571 /* finalStitch.m */; };
 		29A58667178BCAC60070958A /* Complex.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5865C178BCAC60070958A /* Complex.m */; };
 		29A58668178BCAC60070958A /* ComplexMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5865E178BCAC60070958A /* ComplexMatrix.m */; };
 		29A58669178BCAC60070958A /* Derivative.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A58660178BCAC60070958A /* Derivative.m */; };
@@ -73,6 +74,8 @@
 		295211FA17A0A4F7008C143E /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		295211FB17A0A503008C143E /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
 		295211FD17A0A819008C143E /* zebra2r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zebra2r.png; path = ../../../../../../Downloads/zebra2r.png; sourceTree = "<group>"; };
+		296ACE3F17A1E1AA00D02571 /* finalStitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = finalStitch.h; sourceTree = "<group>"; };
+		296ACE4017A1E1AA00D02571 /* finalStitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = finalStitch.m; sourceTree = "<group>"; };
 		29A5865B178BCAC60070958A /* Complex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Complex.h; sourceTree = "<group>"; };
 		29A5865C178BCAC60070958A /* Complex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Complex.m; sourceTree = "<group>"; };
 		29A5865D178BCAC60070958A /* ComplexMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexMatrix.h; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				29DB231617A0B94F006A1126 /* UIImagePruner.m */,
 				29DB231C17A0D0F4006A1126 /* drawRedLines.h */,
 				29DB231D17A0D0F4006A1126 /* drawRedLines.m */,
+				296ACE3F17A1E1AA00D02571 /* finalStitch.h */,
+				296ACE4017A1E1AA00D02571 /* finalStitch.m */,
 			);
 			name = STICH;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				295211FC17A0A503008C143E /* Match.m in Sources */,
 				29DB231717A0B94F006A1126 /* UIImagePruner.m in Sources */,
 				29DB231E17A0D0F4006A1126 /* drawRedLines.m in Sources */,
+				296ACE4117A1E1AA00D02571 /* finalStitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

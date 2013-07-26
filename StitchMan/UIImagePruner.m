@@ -40,10 +40,10 @@
     unsigned char *newData = malloc(newHeight * newWidth * 4 * sizeof(unsigned char));
     for (int i = 0; i < newHeight; i++) {
         for (int j = 0; j < newWidth; j++) {
-            newData[4 * (i * newWidth + j)] = imRawData[4 * ((i + minStartX) * width + (j + minStartY))];
-            newData[4 * (i * newWidth + j) + 1] = imRawData[4 * ((i + minStartX) * width + (j + minStartY)) + 1];
-            newData[4 * (i * newWidth + j) + 2] = imRawData[4 * ((i + minStartX) * width + (j + minStartY)) + 2];
-            newData[4 * (i * newWidth + j) + 3] = imRawData[4 * ((i + minStartX) * width + (j + minStartY)) + 3];
+            newData[4 * (i * newWidth + j)] = imRawData[4 * ((i + minStartY) * width + (j + minStartX))];
+            newData[4 * (i * newWidth + j) + 1] = imRawData[4 * ((i + minStartY) * width + (j + minStartX)) + 1];
+            newData[4 * (i * newWidth + j) + 2] = imRawData[4 * ((i + minStartY) * width + (j + minStartX)) + 2];
+            newData[4 * (i * newWidth + j) + 3] = imRawData[4 * ((i + minStartY) * width + (j + minStartX)) + 3];
         }
     }
 

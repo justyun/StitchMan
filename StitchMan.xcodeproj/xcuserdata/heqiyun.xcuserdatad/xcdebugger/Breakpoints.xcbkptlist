@@ -8,22 +8,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StitchMan/Stitcher.m"
-         timestampString = "396420227.444092"
+         timestampString = "396484173.301864"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "436"
-         endingLineNumber = "436">
+         startingLineNumber = "481"
+         endingLineNumber = "481">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StitchMan/Stitcher.m"
-         timestampString = "396420227.444092"
+         timestampString = "396484173.301864"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "435"
-         endingLineNumber = "435"
+         startingLineNumber = "480"
+         endingLineNumber = "480"
          landmarkName = "@implementation Stitcher"
          landmarkType = "3">
       </FileBreakpoint>
@@ -58,11 +58,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StitchMan/Stitcher.m"
-         timestampString = "396419117.705346"
+         timestampString = "396484173.301864"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "163"
-         endingLineNumber = "163"
+         startingLineNumber = "208"
+         endingLineNumber = "208"
          landmarkName = "+getScale:p2:"
          landmarkType = "5">
       </FileBreakpoint>

@@ -30,6 +30,8 @@
     //scale = 1;
     scale = [Stitcher getScale:p1 p2:p2];
     printf("sclae = %f\n",scale);
+    
+    if (scale > 0.95) {
     UIImage *scaledSecondImage = [Stitcher changeScale:secondImage
                                                  scale:scale];
     //UIImage * finalFirstImage = [Stitcher fillImage:firstImage];
@@ -53,18 +55,58 @@
                                                setHeight:newHeight
                                                 setWidth:newWidth
                                   ];
+    
+    UIImage * resultImage = [Stitcher combineTwoImages:finalFirstImage
+                                           secondImage:finalSecondImage];
+        return resultImage;
+        //return finalSecondImage;
+        //return finalFirstImage;
+        //return scaledSecondImage;
+
+    /*
     UIImage * resultImage = [UIImagePruner pruneImage:[Stitcher combineTwoImages:finalFirstImage
                                            secondImage:finalSecondImage]
                              ];
-    
+    */
     //scaledSecondImage = nil;
     //finalFirstImage = nil;
     //finalSecondImage = nil;
+    }
+    else{
+        scale = 1.0 / scale;
+        UIImage *scaledSecondImage = [Stitcher changeScale:firstImage
+                                                     scale:scale];
+        UIImage * finalFirstImage =[Stitcher rotateUIImage:secondImage
+                                                  rotation:0
+                                                referenceX:0
+                                                referenceY:0
+                                                      setX:expandLength
+                                                      setY:expandLength
+                                                 setHeight:newHeight
+                                                  setWidth:newWidth
+                                    ];
+        
+        
+        UIImage * finalSecondImage = [Stitcher rotateUIImage:scaledSecondImage
+                                                    rotation:-theta
+                                                  referenceX:p1->keypoint1->x * scale
+                                                  referenceY:p1->keypoint1->y * scale
+                                                        setX:p1->keypoint2->x + expandLength
+                                                        setY:p1->keypoint2->y + expandLength
+                                                   setHeight:newHeight
+                                                    setWidth:newWidth
+                                      ];
+        
+        UIImage * resultImage = [Stitcher combineTwoImages:finalFirstImage
+                                               secondImage:finalSecondImage];
+        return resultImage;
+        //return finalSecondImage;
+        //return finalFirstImage;
+        //return scaledSecondImage;
+        
+    }
     
-    return resultImage;
-    //return finalSecondImage;
-    //return finalFirstImage;
-    //return scaledSecondImage;
+ 
 }
 
 +(UIImage *)combineTwoImages:(UIImage *)firstImage
@@ -83,9 +125,12 @@
             componentAlpha = componentB + 1;
 
             if (secondRawData[componentAlpha]!=0 && firstRawData[componentAlpha]!=0) {
+                continue;
+                /*
                 firstRawData[componentR] = ((int)firstRawData[componentR] + (int)secondRawData[componentR]) / 2;
                 firstRawData[componentG] = ((int)firstRawData[componentG] + (int)secondRawData[componentG]) / 2;
                 firstRawData[componentB] = ((int)firstRawData[componentB] + (int)secondRawData[componentB]) / 2;
+                 */
             }
             else if (secondRawData[componentAlpha]!=0 && firstRawData[componentAlpha]==0){
                 firstRawData[componentR] = secondRawData[componentR];

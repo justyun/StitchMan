@@ -22,10 +22,10 @@
 
 int main(int argc, char *argv[])
 {
-    //UIImage *im1 = [UIImage imageNamed:@"1.png"];
-    //UIImage *im2 = [UIImage imageNamed:@"zebra2b.png"];
-    UIImage *im1 = [UIImage imageNamed:@"orchard1.png"];
-    UIImage *im2 = [UIImage imageNamed:@"orchard2.png"];
+    UIImage *im1 = [UIImage imageNamed:@"1.png"];
+    UIImage *im2 = [UIImage imageNamed:@"zebra2b.png"];
+    //UIImage *im1 = [UIImage imageNamed:@"orchard1.png"];
+    //UIImage *im2 = [UIImage imageNamed:@"orchard2.png"];
 
     ImageMatrix *m1 = [ImageConverter UIImage2ImageMatrixY:im1];
     ImageMatrix *m2 = [ImageConverter UIImage2ImageMatrixY:im2];
@@ -40,6 +40,15 @@ int main(int argc, char *argv[])
                                 withImage:im2
                     usingKeypointPairList:matchResult];
     
+    
+    clock_t start,finish;
+        
+    start=clock();
+    im3 = [UIImagePruner pruneImage:im3];
+    finish=clock();
+    printf("%f seconds used to prune picture\n",(float)(finish-start)/1000000);
+
+    
     UIImage * redLinedImage = [drawRedLines drawRedLine:im1
                                             secondImage:im2
                                                pairList:matchResult
@@ -51,7 +60,7 @@ int main(int argc, char *argv[])
     
     @autoreleasepool {
         
-        
+        /*
             UIImage *uiimage1=[UIImage imageWithContentsOfFile:@"/Users/heqiyun/Downloads/1.png"];
             UIImage *uiimage2=[UIImage imageWithContentsOfFile:@"/Users/heqiyun/Downloads/zebra2r.png"];
             ImageMatrix *im1=[ImageConverter UIImage2ImageMatrixY:uiimage1];
@@ -66,12 +75,7 @@ int main(int argc, char *argv[])
             NSString *str=[[NSString alloc] initWithFormat:@"/Users/heqiyun/Desktop/testMatch.png"];
             [[NSFileManager defaultManager] createFileAtPath:str contents:data attributes:nil];
             
-            
-            
-        
-        
-        
-        
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+            */
+            return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
