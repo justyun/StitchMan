@@ -197,10 +197,10 @@ __attribute((ns_returns_retained))
      
     //return keypoint
     Keypoint *newKeypoint=[[Keypoint alloc]
-                           initWithX:(int)(((double)x+xc)*(double)(1<<octave_num))
-                                   Y:(int)(((double)y+yc)*(double)(1<<octave_num))
-                               X_OCT:x
-                               Y_OCT:y
+                           initWithX:((double)x+xc)*(double)(1<<octave_num)
+                                   Y:((double)y+yc)*(double)(1<<octave_num)
+                               X_OCT:(double)x+xc
+                               Y_OCT:(double)y+yc
                               Octave:octave_num
                             Interval:interval_num
                          Subinterval:ic];
@@ -239,8 +239,8 @@ __attribute((ns_returns_retained))
     ImageMatrix *im=[pyramid getGaussianMatrixAtOctave:kp->octave_num Interval:kp->interval_num];
     int width=im->imageWidth;
     int height=im->imageHeight;
-    int x=kp->x_oct;
-    int y=kp->y_oct;
+    int x=round(kp->x_oct);
+    int y=round(kp->y_oct);
     int x1,y1;
     double scale=[self getScaleOfKeypoint:kp];
     double scale_oct=[self getOctaveScaleOfKeypoint:kp];
@@ -343,8 +343,8 @@ __attribute((ns_returns_retained))
     
     double kp_theta=kp->theta;
     double magnitude,theta;
-    int x=kp->x_oct;
-    int y=kp->y_oct;
+    int x=round(kp->x_oct);
+    int y=round(kp->y_oct);
     int x1,y1;
     int i,j,k;
     int i_rot,j_rot;
@@ -492,7 +492,7 @@ __attribute((ns_returns_retained))
     for(int l=0;l<length;l++){
         Keypoint *kp=[keypoints objectAtIndex:l];
         fprintf(fp,"Keypoint: %d\n",l+1);
-        fprintf(fp,"Position: %d %d\n",kp->y,kp->x);
+        fprintf(fp,"Position: %.2f %.2f\n",kp->y,kp->x);
         for(int i=0;i<4;i++)
             for(int j=0;j<4;j++)
                 for(int k=0;k<8;k++)

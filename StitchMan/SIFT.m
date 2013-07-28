@@ -22,7 +22,7 @@
         finish=clock();
         printf("%f seconds used to build pyramid\n",(float)(finish-start)/1000000);
         
-        //[pyramid output];
+        [pyramid output];
         
         start=clock();
         [self detectKeypoints];
@@ -59,22 +59,26 @@
     int width=imageMatrix->imageWidth;
     int height=imageMatrix->imageHeight;
     int length=keypointVector.getLength;
+    int x,y;
     for(int i=0;i<length;i++){
         Keypoint *p=[keypointVector->keypoints objectAtIndex:i];
-        output->pImage[p->y*imageMatrix->imageWidth+p->x]=255;
-        output->pImage[(p->y+1)*imageMatrix->imageWidth+p->x+1]=255;
-        output->pImage[(p->y+1)*imageMatrix->imageWidth+p->x-1]=255;
-        output->pImage[(p->y-1)*imageMatrix->imageWidth+p->x+1]=255;
-        output->pImage[(p->y-1)*imageMatrix->imageWidth+p->x-1]=255;
+        x=round(p->x);
+        y=round(p->y);
         
-        if(p->x<width-2 && p->y<height-2)
-            output->pImage[(p->y+2)*imageMatrix->imageWidth+p->x+2]=255;
-        if(p->x>1 && p->y<height-2)
-            output->pImage[(p->y+2)*imageMatrix->imageWidth+p->x-2]=255;
-        if(p->x<width-2 && p->y>1)
-            output->pImage[(p->y-2)*imageMatrix->imageWidth+p->x+2]=255;
-        if(p->x>1 && p->y>1)
-            output->pImage[(p->y-2)*imageMatrix->imageWidth+p->x-2]=255;
+        output->pImage[y*width+x]=255;
+        output->pImage[(y+1)*width+x+1]=255;
+        output->pImage[(y+1)*width+x-1]=255;
+        output->pImage[(y-1)*width+x+1]=255;
+        output->pImage[(y-1)*width+x-1]=255;
+        
+        if(x<width-2 && y<height-2)
+            output->pImage[(y+2)*width+x+2]=255;
+        if(x>1 && y<height-2)
+            output->pImage[(y+2)*width+x-2]=255;
+        if(x<width-2 && y>1)
+            output->pImage[(y-2)*width+x+2]=255;
+        if(x>1 && y>1)
+            output->pImage[(y-2)*width+x-2]=255;
     }
     return output;
 }

@@ -15,6 +15,7 @@
   usingKeypointPairList:(KeypointPairList *)pairList{
     int newWidth;
     int newHeight;
+    int firstNPairs=20;
     double theta;
     double scale;
     int expandLength = MAX(firstImage.size.height, firstImage.size.width);
@@ -24,12 +25,23 @@
     KeypointPair *p1 = [list objectAtIndex:0];
     KeypointPair *p2 = [list objectAtIndex:1];
    // KeypointPair *p3 = [list objectAtIndex:2];
-    theta = [Stitcher getTheta:p1 p2:p2];
-    printf("theta = %f\n",theta);
+ 
+    //to get scale
     //theta = 0;
     //scale = 1;
     scale = [Stitcher getScale:p1 p2:p2];
     printf("sclae = %f\n",scale);
+    
+    //to get theta
+    //theta = [Stitcher getTheta:p1 p2:p2];
+    theta = [toAverage getAverageTheta:pairList
+                         ofFirstNPairs:firstNPairs];
+    printf("theta = %f\n",theta);
+    
+    //set reference point
+    p1 = [toAverage getAverageReferencePoint:pairList
+                               ofFirstNPairs:firstNPairs];
+    
     
     if (scale > 0.95) {
     UIImage *scaledSecondImage = [Stitcher changeScale:secondImage
@@ -125,12 +137,23 @@
             componentAlpha = componentB + 1;
 
             if (secondRawData[componentAlpha]!=0 && firstRawData[componentAlpha]!=0) {
-                continue;
+                //continue;
                 /*
                 firstRawData[componentR] = ((int)firstRawData[componentR] + (int)secondRawData[componentR]) / 2;
                 firstRawData[componentG] = ((int)firstRawData[componentG] + (int)secondRawData[componentG]) / 2;
                 firstRawData[componentB] = ((int)firstRawData[componentB] + (int)secondRawData[componentB]) / 2;
                  */
+                
+                if ( (i+j)< ((width+height)/2)) {
+                    continue;
+                }
+                else{ firstRawData[componentR] = secondRawData[componentR];
+                    firstRawData[componentG] = secondRawData[componentG];
+                    firstRawData[componentB] = secondRawData[componentB];
+                    firstRawData[componentAlpha] = secondRawData[componentAlpha];
+}
+                
+                
             }
             else if (secondRawData[componentAlpha]!=0 && firstRawData[componentAlpha]==0){
                 firstRawData[componentR] = secondRawData[componentR];
@@ -162,8 +185,8 @@
     
     double degree1 = atan2(y21-y11,x11-x21);
     double degree2 = atan2(y22-y12,x12-x22);
-    printf("x11 : %d,x21: %d,x12: %d,x22: %d,y11: %d,y21: %d,y12: %d,y22: %d \n",x11,x21,x12,x22,y11,y21,y12,y22);
-    printf("degree1: %f   degree2: %f\n",degree1,degree2);
+    /*printf("x11 : %d,x21: %d,x12: %d,x22: %d,y11: %d,y21: %d,y12: %d,y22: %d \n",x11,x21,x12,x22,y11,y21,y12,y22);
+    printf("degree1: %f   degree2: %f\n",degree1,degree2);*/
     double theta = degree1 - degree2;
     return theta;
 }
@@ -208,7 +231,6 @@
     double distance1 = sqrt((x11-x21)*(x11-x21)+(y11-y21)*(y11-y21));
     double distance2 = sqrt((x12-x22)*(x12-x22)+(y12-y22)*(y12-y22));
     double scale = distance1/distance2;
-    printf("scale:  %f\n",scale);
     return scale;
 }
 

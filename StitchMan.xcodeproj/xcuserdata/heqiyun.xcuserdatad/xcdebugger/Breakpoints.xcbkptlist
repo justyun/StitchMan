@@ -8,22 +8,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StitchMan/Stitcher.m"
-         timestampString = "396484173.301864"
+         timestampString = "396583704.193646"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "481"
-         endingLineNumber = "481">
+         startingLineNumber = "503"
+         endingLineNumber = "503">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StitchMan/Stitcher.m"
-         timestampString = "396484173.301864"
+         timestampString = "396583704.193646"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "480"
-         endingLineNumber = "480"
+         startingLineNumber = "502"
+         endingLineNumber = "502"
          landmarkName = "@implementation Stitcher"
          landmarkType = "3">
       </FileBreakpoint>
@@ -58,12 +58,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StitchMan/Stitcher.m"
-         timestampString = "396484173.301864"
+         timestampString = "396583704.193646"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "208"
-         endingLineNumber = "208"
+         startingLineNumber = "231"
+         endingLineNumber = "231"
          landmarkName = "+getScale:p2:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "StitchMan/StitcherUsingHomography.m"
+         timestampString = "396666290.13418"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "+stitching:andImage:usingKeypointPairList:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "StitchMan/Homography.m"
+         timestampString = "396675379.804313"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "+findHomography2DWithX1:Y1:X11:Y11:X2:Y2:X22:Y22:X3:Y3:X33:Y33:X4:Y4:X44:Y44:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -12,6 +12,7 @@
 #import "math.h"
 #import "UIImagePruner.h"
 #import "drawRedLines.h"
+#import "toAverage.h"
 
 @interface Stitcher : NSObject
 

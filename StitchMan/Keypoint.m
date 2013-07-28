@@ -10,7 +10,7 @@
 
 @implementation Keypoint
 
-- (id)initWithX:(int)x1 Y:(int)y1 X_OCT:(int)x_oct1 Y_OCT:(int)y_oct1
+- (id)initWithX:(double)x1 Y:(double)y1 X_OCT:(double)x_oct1 Y_OCT:(double)y_oct1
          Octave:(int)octave_num1 Interval:(int)interval_num1 Subinterval:(double)sub_interval_num1
 {
     if(self=[super init]){

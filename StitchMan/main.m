@@ -19,14 +19,16 @@
 #import "SIFT.h"
 #import "Matcher.h"
 #import "Match.h"
+#import "StitcherUsingHomography.h"
 
 int main(int argc, char *argv[])
 {
-    UIImage *im1 = [UIImage imageNamed:@"1.png"];
-    UIImage *im2 = [UIImage imageNamed:@"zebra2b.png"];
-    //UIImage *im1 = [UIImage imageNamed:@"orchard1.png"];
-    //UIImage *im2 = [UIImage imageNamed:@"orchard2.png"];
-
+    //UIImage *im1 = [UIImage imageNamed:@"1.png"];
+    //UIImage *im2 = [UIImage imageNamed:@"zebra2b.png"];
+    UIImage *im2 = [UIImage imageNamed:@"orchard1.png"];
+    UIImage *im1 = [UIImage imageNamed:@"orchard2.png"];
+    //UIImage *im1=[UIImage imageWithContentsOfFile:@"/Users/heqiyun/Downloads/testPicture/Picture 1.png"];
+    //UIImage *im2=[UIImage imageWithContentsOfFile:@"/Users/heqiyun/Downloads/testPicture/Picture 2.png"];
     ImageMatrix *m1 = [ImageConverter UIImage2ImageMatrixY:im1];
     ImageMatrix *m2 = [ImageConverter UIImage2ImageMatrixY:im2];
     SIFT *sift1=[[SIFT alloc] initWithImageMatrix:m1];
@@ -36,9 +38,12 @@ int main(int argc, char *argv[])
     
     printf("%d\n",[matchResult->pairList count]);
 
-    UIImage * im3 = [Stitcher stitchImage:im1
+    /*UIImage * im3 = [Stitcher stitchImage:im1
                                 withImage:im2
-                    usingKeypointPairList:matchResult];
+                    usingKeypointPairList:matchResult];*/
+    UIImage * im3 = [StitcherUsingHomography stitching:im1
+                                              andImage:im2
+                                 usingKeypointPairList:matchResult];
     
     
     clock_t start,finish;
@@ -52,7 +57,7 @@ int main(int argc, char *argv[])
     UIImage * redLinedImage = [drawRedLines drawRedLine:im1
                                             secondImage:im2
                                                pairList:matchResult
-                                          numberOfLines:2];
+                                          numberOfLines:10];
 
     [UIImagePNGRepresentation(im3) writeToFile:@"/Users/heqiyun/Desktop/my.png" atomically:YES];
     [UIImagePNGRepresentation(redLinedImage) writeToFile:@"/Users/heqiyun/Desktop/redLinedImage.png" atomically:YES];
@@ -61,8 +66,8 @@ int main(int argc, char *argv[])
     @autoreleasepool {
         
         /*
-            UIImage *uiimage1=[UIImage imageWithContentsOfFile:@"/Users/heqiyun/Downloads/1.png"];
-            UIImage *uiimage2=[UIImage imageWithContentsOfFile:@"/Users/heqiyun/Downloads/zebra2r.png"];
+            UIImage *uiimage1=[UIImage imageWithContentsOfFile:@"/Users/heqiyun/Downloads/testPicture/Picture 1.png"];
+        UIImage *uiimage2=[UIImage imageWithContentsOfFile:@"/Users/heqiyun/Downloads/testPicture/Picture 2.png"];
             ImageMatrix *im1=[ImageConverter UIImage2ImageMatrixY:uiimage1];
             ImageMatrix *im2=[ImageConverter UIImage2ImageMatrixY:uiimage2];
             
@@ -74,8 +79,8 @@ int main(int argc, char *argv[])
             NSData *data=UIImagePNGRepresentation(imout);
             NSString *str=[[NSString alloc] initWithFormat:@"/Users/heqiyun/Desktop/testMatch.png"];
             [[NSFileManager defaultManager] createFileAtPath:str contents:data attributes:nil];
+         */   
             
-            */
             return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

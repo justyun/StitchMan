@@ -3,6 +3,25 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "+[StitcherUsingHomography stitching:andImage:usingKeypointPairList:]:StitcherUsingHomography.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "secondImage.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[StitcherUsingHomography getHomographicMatrix:andImage:usingKeypointPairList:]:StitcherUsingHomography.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "firstImage.size">
+            </PersistentString>
+            <PersistentString
+               value = "secondImage.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "+[Matcher getEuclidianDistance:keypoint2:]:Matcher.m">
          <PersistentStrings>
             <PersistentString
@@ -32,6 +51,17 @@
             </PersistentString>
             <PersistentString
                value = "p1-&gt;keypoint1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[coordinate changeToReverse:height:width:]:coordinate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "width/2">
+            </PersistentString>
+            <PersistentString
+               value = "secondImage.size.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
